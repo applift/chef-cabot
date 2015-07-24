@@ -25,6 +25,7 @@ end
 end
 
 gem_package 'foreman' do
+  version "0.77.0"
   action :install
 end
 
@@ -113,8 +114,8 @@ end
 bash 'run migrations' do
   cwd node['cabot']['home_dir']
   code <<-EOH
-    foreman run python manage.py syncdb -e conf/#{node['cabot']['environment']}.env
-    foreman run python manage.py migrate cabotapp --noinput -e conf/#{node['cabot']['environment']}.env
+    foreman run -e conf/#{node['cabot']['environment']}.env python manage.py syncdb
+    foreman run -e conf/#{node['cabot']['environment']}.env python manage.py migrate cabotapp --noinput
   EOH
   action :nothing
   notifies :run, 'bash[collect static assets]', :immediately
@@ -123,8 +124,8 @@ end
 bash 'collect static assets' do
   cwd node['cabot']['home_dir']
   code <<-EOH
-    foreman run python manage.py collectstatic --noinput -e conf/#{node['cabot']['environment']}.env
-    foreman run python manage.py compress --force -e conf/#{node['cabot']['environment']}.env
+    foreman run -e conf/#{node['cabot']['environment']}.env python manage.py collectstatic --noinput
+    foreman run -e conf/#{node['cabot']['environment']}.env python manage.py compress --force
   EOH
   action :nothing
   notifies :run, 'bash[setup upstart]', :immediately
