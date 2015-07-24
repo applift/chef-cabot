@@ -38,7 +38,8 @@ end
   'gunicorn' => '18.0', 'hiredis' => '0.1.1', 'httplib2' => '0.7.7', 'icalendar' => '3.2', 'kombu' => '3.0.8',
   'mock' => '1.0.1', 'psycopg2' => '2.5.1', 'pytz' => '2013.9', 'redis' => '2.9.0', 'requests' => '0.14.2',
   'six' => '1.5.1', 'twilio' => '3.4.1', 'wsgiref' => '0.1.2', 'python-dateutil' => '2.1', 'djangorestframework' => '3.1.3',
-  'cabot_alert_hipchat' => '1.6.1', 'cabot-alert-twilio' => '1.1.4', 'cabot-alert-slack' => '0.6.0'
+  'cabot_alert_hipchat' => '1.6.1', 'cabot-alert-twilio' => '1.1.4', 'cabot-alert-slack' => '0.6.0',
+  'cabot_alert_email' => '1.3.1'
 }.each do |mod, version|
   python_pip mod do
     action :install
