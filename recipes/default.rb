@@ -25,7 +25,7 @@ end
 end
 
 gem_package 'foreman' do
-  version "0.77.0"
+  version '0.77.0'
   action :install
 end
 
