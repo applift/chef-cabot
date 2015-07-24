@@ -1,3 +1,4 @@
+default['cabot']['plugins'] = 'cabot_alert_hipchat==1.6.1,cabot_alert_twilio==1.6.1,cabot_alert_email==1.3.1'
 default['cabot']['user'] = 'cabot'
 default['cabot']['group'] = 'cabot'
 default['cabot']['home_dir'] = '/opt/cabot'
