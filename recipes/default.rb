@@ -126,7 +126,7 @@ end
 bash 'collect static assets' do
   cwd node['cabot']['home_dir']
   code <<-EOH
-    foreman run -e conf/#{node['cabot']['environment']}.env python manage.py collectstatic --noinput
+    foreman run -e conf/#{node['cabot']['environment']}.env python manage.py collectstatic --noinput;
     foreman run -e conf/#{node['cabot']['environment']}.env python manage.py compress --force
   EOH
   action :nothing
