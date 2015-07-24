@@ -1,11 +1,13 @@
 #!/usr/bin/env rake
 
+require 'rubocop'
+
 # Style tests. Rubocop and Foodcritic
 namespace :style do
   begin
     require 'rubocop/rake_task'
     desc 'Run Ruby style checks'
-    Rubocop::RakeTask.new('ruby')
+    RuboCop::RakeTask.new('ruby')
   rescue LoadError
     puts '>>>>> Rubocop gem not loaded, omitting tasks' unless ENV['CI']
   end
