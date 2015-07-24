@@ -38,7 +38,7 @@ default['cabot']['twilio_auth_token'] = 'your_twilio_auth_token'
 default['cabot']['twilio_outgoing_number'] = '+1234567890'
 default['cabot']['www_http_host'] = 'localhost'
 default['cabot']['www_scheme'] = 'http'
-default['cabot']['www_port'] = 80
+default['cabot']['www_port'] = 8081
 default['cabot']['django_settings_module'] = 'cabot.settings'
 
 default['cabot']['postgresql']['database'] = 'index'
@@ -49,6 +49,7 @@ default['build-essential']['compile_time'] = true
 
 default['apt']['compile_time_update'] = true
 default['nginx']['default_site_enabled'] = false
-default['npm']['version'] = '1.4.20'
+default['nginx']['port'] = 8081
+default['npm']['version'] = '1.4.28'
 default['nodejs']['npm'] = node['npm']['version']
 # default['nodejs'][:install_method] = 'package'
