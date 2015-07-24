@@ -8,7 +8,7 @@
 #
 
 # dependency setup
-%w(ubuntu git npm python redis build-essential).each do |cookbook|
+%w(ubuntu git npm python redis build-essential postgresql).each do |cookbook|
   include_recipe cookbook
 end
 
