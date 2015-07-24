@@ -12,7 +12,7 @@
   include_recipe cookbook
 end
 
-%w(ruby1.9.1 libpq-dev).each do |pkg|
+%w(ruby1.9.3 libpq-dev).each do |pkg|
   package pkg do
     action :install
   end
@@ -80,6 +80,7 @@ template "#{node['cabot']['home_dir']}/conf/#{node['cabot']['environment']}.env"
   action :create
   source "#{node['cabot']['environment']}.env.erb"
   variables(
+    plugins: node['cabot']['plugins'],
     debug: node['cabot']['debug'],
     django_settings_module: node['cabot']['django_settings_module'],
     database_url: node['cabot']['database_url'],
@@ -114,7 +115,7 @@ end
 bash 'run migrations' do
   cwd node['cabot']['home_dir']
   code <<-EOH
-    foreman run -e conf/#{node['cabot']['environment']}.env python manage.py syncdb
+    foreman run -e conf/#{node['cabot']['environment']}.env python manage.py syncdb;
     foreman run -e conf/#{node['cabot']['environment']}.env python manage.py migrate cabotapp --noinput
   EOH
   action :nothing
